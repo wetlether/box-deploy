@@ -1,0 +1,19 @@
+# Wetlether box — one-click Render deploy.
+# Runs the public image ghcr.io/wetlether/box on an always-on web service
+# with a persistent disk at /data. You paste WL_TOKEN (your access code) at deploy time.
+services:
+  - type: web
+    name: wetlether-box
+    runtime: image
+    image:
+      url: ghcr.io/wetlether/box:latest
+    plan: standard        # paid = always-on; Render's free tier sleeps and would break the box
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: WL_HUB_URL
+        value: https://wetlether-hub-production.up.railway.app
+      - key: WL_TOKEN
+        sync: false        # Render prompts you to paste this on first deploy
