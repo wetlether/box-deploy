@@ -6,7 +6,7 @@ services:
     name: wetlether-box
     runtime: image
     image:
-      url: ghcr.io/wetlether/box@sha256:1f0c9fc194a93fb7d070f8c85744f4d58f7f88737508bf12f72786f0d8b66e16
+      url: ghcr.io/wetlether/box@sha256:c191bb5cabd8cc3c078ae5797305e99fca646c5076c00ad4b9d897301f2e2fec
     plan: standard        # paid = always-on; Render's free tier sleeps and would break the box
     disk:
       name: data
